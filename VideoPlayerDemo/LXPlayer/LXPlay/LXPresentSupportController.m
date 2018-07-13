@@ -1,9 +1,6 @@
-//
-//  LXPresentSupportController.m
-//  LXPlayer
-//
-//  Created by chenergou on 2018/1/18.
-//  Copyright © 2018年 漫漫. All rights reserved.
+
+//  Created by mxt on 2017/12/4.
+//  Copyright © 2017年 mxt. All rights reserved.
 //
 
 #import "LXPresentSupportController.h"

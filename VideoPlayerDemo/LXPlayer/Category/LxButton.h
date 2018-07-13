@@ -1,9 +1,6 @@
-//
-//  LxButton.h
-//  ButtonBlock
-//
-//  Created by chuanglong02 on 16/8/4.
-//  Copyright © 2016年 chuanglong02. All rights reserved.
+
+//  Created by mxt on 2017/12/5.
+//  Copyright © 2017年 mxt. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

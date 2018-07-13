@@ -1,9 +1,6 @@
-//
-//  UIColor+HexStringToColor.h
-//  SmartGate
-//
-//  Created by fred on 14-8-19.
-//  Copyright (c) 2014年 fred. All rights reserved.
+
+//  Created by mxt on 2017/12/5.
+//  Copyright © 2017年 mxt. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

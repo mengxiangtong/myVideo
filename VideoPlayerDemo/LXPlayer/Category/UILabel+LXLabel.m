@@ -1,9 +1,6 @@
-//
-//  UILabel+LXLabel.m
-//  testTryCatch
-//
-//  Created by chuanglong02 on 16/7/15.
-//  Copyright © 2016年 chuanglong02. All rights reserved.
+
+//  Created by mxt on 2017/12/5.
+//  Copyright © 2017年 mxt. All rights reserved.
 //
 
 #import "UILabel+LXLabel.h"
