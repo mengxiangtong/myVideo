@@ -1,7 +1,4 @@
-# LXPlayer
 
-截屏：
-![image](https://github.com/liuxinixn/LXPlayer/blob/master/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8.gif)
 
 
 使用方法：示例
