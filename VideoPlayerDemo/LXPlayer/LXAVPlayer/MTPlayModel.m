@@ -3,8 +3,8 @@
 //  Copyright © 2017年 mxt. All rights reserved.
 //
 
-#import "LXPlayModel.h"
+#import "MTPlayModel.h"
 
-@implementation LXPlayModel
+@implementation MTPlayModel
 
 @end

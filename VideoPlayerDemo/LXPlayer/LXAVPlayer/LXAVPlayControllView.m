@@ -9,6 +9,8 @@
 
 #define Space 10
 #import "LXPlayLoadingView.h"
+
+
 @interface LXAVPlayControllView()<UIGestureRecognizerDelegate>
 /*
  * 顶部工具栏
@@ -56,6 +58,7 @@
         
         [self makeConstraints];
         
+        //3, 调用
         [self addCallBack];
     }
     return self;
@@ -359,7 +362,7 @@
     if (!_topView) {
         _topView = [[UIView alloc]init];
         _topView.backgroundColor =[UIColor clearColor];
-        _topView.backgroundColor =[UIColor yellowColor];
+        _topView.backgroundColor =[UIColor grayColor];
 
     }
     return _topView;

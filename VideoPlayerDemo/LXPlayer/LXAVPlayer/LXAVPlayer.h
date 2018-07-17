@@ -5,6 +5,7 @@
 
 #ifndef LXAVPlayer_h
 #define LXAVPlayer_h
+
 typedef void (^GetSlideValue) (CGFloat value);
 
 typedef void (^Panbegin) ();
@@ -15,9 +16,9 @@ typedef void (^TapSlider) (CGFloat value);
 
 typedef void (^BackBlock)();
 
-#import "LXAVPlayView.h"
+#import "MTAVPlayView.h"
 #import "LXAVPlayControllView.h"
-#import "LXPlayModel.h"
+#import "MTPlayModel.h"
 #import "LXSlider.h"
 #import "LXPlayLoadingView.h"
 #import "UIImage+LXAVPlayer.h"

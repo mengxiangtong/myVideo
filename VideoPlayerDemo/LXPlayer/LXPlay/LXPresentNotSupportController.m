@@ -6,7 +6,7 @@
 #import "LXPresentNotSupportController.h"
 
 @interface LXPresentNotSupportController ()
-@property(nonatomic,strong)LXAVPlayView *playerview;
+@property(nonatomic,strong)MTAVPlayView *playerview;
 
 @property(nonatomic,strong)UIView *playFatherView;
 @end
@@ -31,11 +31,11 @@
     
     
     //
-    LXPlayModel *model =[[LXPlayModel alloc]init];
+    MTPlayModel *model =[[MTPlayModel alloc]init];
     model.playUrl = @"http://player.alicdn.com/video/aliyunmedia.mp4";
     model.videoTitle = @"蝙蝠侠大战大灰狼";
     model.fatherView = self.playFatherView;
-    self.playerview =[[LXAVPlayView alloc]init];
+    self.playerview =[[MTAVPlayView alloc]init];
     
     self.playerview.isLandScape = NO;
     
@@ -57,7 +57,7 @@
     
     [nextBtn addClickBlock:^(UIButton *button) {
         
-        LXPlayModel *model =[[LXPlayModel alloc]init];
+        MTPlayModel *model =[[MTPlayModel alloc]init];
         model.playUrl = @"http://player.alicdn.com/video/aliyunmedia.mp4";
         model.videoTitle = @"陈二狗的妖孽人生";
         model.fatherView = weakSelf.playFatherView;
@@ -71,7 +71,7 @@
     //http://down.4xx.me/test.mp4
     [nextBtn2 addClickBlock:^(UIButton *button) {
         
-        LXPlayModel *model =[[LXPlayModel alloc]init];
+        MTPlayModel *model =[[MTPlayModel alloc]init];
         model.playUrl =  @"http://player.alicdn.com/video/aliyunmedia.mp4";
         model.videoTitle = @"寻梦环游记";
         model.fatherView = weakSelf.playFatherView;

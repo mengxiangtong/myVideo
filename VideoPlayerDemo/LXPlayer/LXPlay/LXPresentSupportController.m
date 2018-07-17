@@ -6,7 +6,7 @@
 #import "LXPresentSupportController.h"
 
 @interface LXPresentSupportController ()
-@property(nonatomic,strong)LXAVPlayView *playerview;
+@property(nonatomic,strong)MTAVPlayView *playerview;
 
 @property(nonatomic,strong)UIView *playFatherView;
 @end
@@ -16,6 +16,8 @@
 -(void)dealloc{
     NSLog(@"%@销毁了",self.class);
 }
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -25,17 +27,19 @@
     
     CGRect rect = CGRectMake(0, 0, Device_Width, 300);
     
-    self.playFatherView =[[UIView alloc]initWithFrame:rect];
+    self.playFatherView =[[UIView alloc] initWithFrame:rect];
     
     [self.view addSubview:self.playFatherView];
     
     
     //
-    LXPlayModel *model =[[LXPlayModel alloc]init];
+    MTPlayModel *model =[[MTPlayModel alloc]init];
     model.playUrl = @"http://player.alicdn.com/video/aliyunmedia.mp4";
     model.videoTitle = @"蝙蝠侠大战大灰狼";
     model.fatherView = self.playFatherView;
-    self.playerview =[[LXAVPlayView alloc]init];
+    
+    
+    self.playerview =[[MTAVPlayView alloc]init];
     
     self.playerview.isLandScape = YES;
     
@@ -56,7 +60,7 @@
     
     [nextBtn addClickBlock:^(UIButton *button) {
         
-        LXPlayModel *model =[[LXPlayModel alloc]init];
+        MTPlayModel *model =[[MTPlayModel alloc]init];
         model.playUrl = @"http://player.alicdn.com/video/aliyunmedia.mp4";
         model.videoTitle = @"陈二狗的妖孽人生";
         model.fatherView = weakSelf.playFatherView;
@@ -68,7 +72,7 @@
     [self.view addSubview:nextBtn2];
     [nextBtn2 addClickBlock:^(UIButton *button) {
         
-        LXPlayModel *model =[[LXPlayModel alloc]init];
+        MTPlayModel *model =[[MTPlayModel alloc]init];
         model.playUrl =  @"http://player.alicdn.com/video/aliyunmedia.mp4";
         model.videoTitle = @"寻梦环游记";
         model.fatherView = weakSelf.playFatherView;

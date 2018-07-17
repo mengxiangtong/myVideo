@@ -1,15 +1,15 @@
 
 
-#import "LXPlayTypeListController.h"
+#import "MTPlayTypeListController.h"
 #import "LXPresentSupportController.h"
 #import "LXPresentNotSupportController.h"
 
-@interface LXPlayTypeListController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MTPlayTypeListController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableview;
 @property(nonatomic,strong)NSArray *dataA;
 @end
 
-@implementation LXPlayTypeListController
+@implementation MTPlayTypeListController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

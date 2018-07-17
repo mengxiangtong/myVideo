@@ -4,11 +4,16 @@
 //
 #import <UIKit/UIKit.h>
 
+
+
+
 typedef void (^PlayBtnClick) (BOOL isPlay);
 
 typedef void (^FullScreenBlock) (BOOL isFullScreen);
 
 typedef void (^ReplayBlock) (BOOL isReplay);
+
+
 
 
 @interface LXAVPlayControllView : UIView
@@ -33,6 +38,8 @@ typedef void (^ReplayBlock) (BOOL isReplay);
 @property(nonatomic,assign)CGFloat cacheValue;
 
 @property(nonatomic,strong)UIImage *placeImage;
+
+
 
 /*播放按钮的回调*/
 @property(nonatomic,copy)PlayBtnClick playCallBack;

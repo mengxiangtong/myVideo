@@ -4,7 +4,7 @@
 //
 #import <Foundation/Foundation.h>
 
-@interface LXPlayModel : NSObject
+@interface MTPlayModel : NSObject
 @property(nonatomic,strong)NSString *playUrl;
 @property(nonatomic,strong)NSString *videoTitle;
 /**必须是weak 否则会造成循环引用 */

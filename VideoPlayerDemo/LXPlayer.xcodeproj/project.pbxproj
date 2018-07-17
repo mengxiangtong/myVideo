@@ -12,7 +12,7 @@
 		F316A26720118ABF007D027C /* LXAVPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F316A26620118ABF007D027C /* LXAVPlayer.bundle */; };
 		F32FDB9B2010915000F3E4DE /* LXPresentSupportController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32FDB9A2010915000F3E4DE /* LXPresentSupportController.m */; };
 		F32FDB9E2010916D00F3E4DE /* LXPresentNotSupportController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32FDB9D2010916D00F3E4DE /* LXPresentNotSupportController.m */; };
-		F34472B820104BD30029FD61 /* LXPlayTypeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34472B720104BD30029FD61 /* LXPlayTypeListController.m */; };
+		F34472B820104BD30029FD61 /* MTPlayTypeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34472B720104BD30029FD61 /* MTPlayTypeListController.m */; };
 		F367DFBF200F4F2300EA5DB5 /* LXPlayLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F367DFBD200F4F2300EA5DB5 /* LXPlayLoadingView.m */; };
 		F392CB4D1FF61A1D00C98CFA /* LXProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F392CB481FF61A1D00C98CFA /* LXProgressView.m */; };
 		F392CB4E1FF61A1D00C98CFA /* LXSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = F392CB4A1FF61A1D00C98CFA /* LXSlider.m */; };
@@ -32,9 +32,9 @@
 		F3B129831FD541D800895FA1 /* UILabel+LXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B129821FD541D800895FA1 /* UILabel+LXLabel.m */; };
 		F3B129861FD541DF00895FA1 /* UIView+LX_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B129851FD541DF00895FA1 /* UIView+LX_Frame.m */; };
 		F3B1298A1FD5438F00895FA1 /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B129891FD5438F00895FA1 /* UIColor+Expanded.m */; };
-		F3B1298E1FD5459A00895FA1 /* LXAVPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B1298D1FD5459A00895FA1 /* LXAVPlayView.m */; };
+		F3B1298E1FD5459A00895FA1 /* MTAVPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B1298D1FD5459A00895FA1 /* MTAVPlayView.m */; };
 		F3B129911FD545C100895FA1 /* LXAVPlayControllView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B129901FD545C100895FA1 /* LXAVPlayControllView.m */; };
-		F3B129941FD545D200895FA1 /* LXPlayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B129931FD545D200895FA1 /* LXPlayModel.m */; };
+		F3B129941FD545D200895FA1 /* MTPlayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B129931FD545D200895FA1 /* MTPlayModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +65,8 @@
 		F32FDB9A2010915000F3E4DE /* LXPresentSupportController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXPresentSupportController.m; sourceTree = "<group>"; };
 		F32FDB9C2010916D00F3E4DE /* LXPresentNotSupportController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXPresentNotSupportController.h; sourceTree = "<group>"; };
 		F32FDB9D2010916D00F3E4DE /* LXPresentNotSupportController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXPresentNotSupportController.m; sourceTree = "<group>"; };
-		F34472B620104BD30029FD61 /* LXPlayTypeListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXPlayTypeListController.h; sourceTree = "<group>"; };
-		F34472B720104BD30029FD61 /* LXPlayTypeListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXPlayTypeListController.m; sourceTree = "<group>"; };
+		F34472B620104BD30029FD61 /* MTPlayTypeListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPlayTypeListController.h; sourceTree = "<group>"; };
+		F34472B720104BD30029FD61 /* MTPlayTypeListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTPlayTypeListController.m; sourceTree = "<group>"; };
 		F367DFBD200F4F2300EA5DB5 /* LXPlayLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPlayLoadingView.m; sourceTree = "<group>"; };
 		F367DFBE200F4F2300EA5DB5 /* LXPlayLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPlayLoadingView.h; sourceTree = "<group>"; };
 		F392CB471FF61A1D00C98CFA /* LXProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXProgressView.h; sourceTree = "<group>"; };
@@ -107,12 +107,12 @@
 		F3B129881FD5438F00895FA1 /* UIColor+Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Expanded.h"; sourceTree = "<group>"; };
 		F3B129891FD5438F00895FA1 /* UIColor+Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Expanded.m"; sourceTree = "<group>"; };
 		F3B1298B1FD5457300895FA1 /* LXAVPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXAVPlayer.h; sourceTree = "<group>"; };
-		F3B1298C1FD5459A00895FA1 /* LXAVPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXAVPlayView.h; sourceTree = "<group>"; };
-		F3B1298D1FD5459A00895FA1 /* LXAVPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXAVPlayView.m; sourceTree = "<group>"; };
+		F3B1298C1FD5459A00895FA1 /* MTAVPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAVPlayView.h; sourceTree = "<group>"; };
+		F3B1298D1FD5459A00895FA1 /* MTAVPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAVPlayView.m; sourceTree = "<group>"; };
 		F3B1298F1FD545C100895FA1 /* LXAVPlayControllView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXAVPlayControllView.h; sourceTree = "<group>"; };
 		F3B129901FD545C100895FA1 /* LXAVPlayControllView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXAVPlayControllView.m; sourceTree = "<group>"; };
-		F3B129921FD545D200895FA1 /* LXPlayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPlayModel.h; sourceTree = "<group>"; };
-		F3B129931FD545D200895FA1 /* LXPlayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPlayModel.m; sourceTree = "<group>"; };
+		F3B129921FD545D200895FA1 /* MTPlayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPlayModel.h; sourceTree = "<group>"; };
+		F3B129931FD545D200895FA1 /* MTPlayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPlayModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,8 +190,8 @@
 			children = (
 				F3B1294C1FD53D5600895FA1 /* AppDelegate.h */,
 				F3B1294D1FD53D5600895FA1 /* AppDelegate.m */,
-				F34472B620104BD30029FD61 /* LXPlayTypeListController.h */,
-				F34472B720104BD30029FD61 /* LXPlayTypeListController.m */,
+				F34472B620104BD30029FD61 /* MTPlayTypeListController.h */,
+				F34472B720104BD30029FD61 /* MTPlayTypeListController.m */,
 				F3B129951FD5481600895FA1 /* LXPlay */,
 				F3B1297D1FD53F4B00895FA1 /* Category */,
 				F3B1297C1FD53ED400895FA1 /* LXAVPlayer */,
@@ -235,14 +235,14 @@
 			isa = PBXGroup;
 			children = (
 				F3B1298B1FD5457300895FA1 /* LXAVPlayer.h */,
-				F3B1298C1FD5459A00895FA1 /* LXAVPlayView.h */,
-				F3B1298D1FD5459A00895FA1 /* LXAVPlayView.m */,
+				F3B1298C1FD5459A00895FA1 /* MTAVPlayView.h */,
+				F3B1298D1FD5459A00895FA1 /* MTAVPlayView.m */,
 				F3B1298F1FD545C100895FA1 /* LXAVPlayControllView.h */,
 				F3B129901FD545C100895FA1 /* LXAVPlayControllView.m */,
 				F367DFBE200F4F2300EA5DB5 /* LXPlayLoadingView.h */,
 				F367DFBD200F4F2300EA5DB5 /* LXPlayLoadingView.m */,
-				F3B129921FD545D200895FA1 /* LXPlayModel.h */,
-				F3B129931FD545D200895FA1 /* LXPlayModel.m */,
+				F3B129921FD545D200895FA1 /* MTPlayModel.h */,
+				F3B129931FD545D200895FA1 /* MTPlayModel.m */,
 				F316A2612011841C007D027C /* UIImage+LXAVPlayer.h */,
 				F316A2622011841C007D027C /* UIImage+LXAVPlayer.m */,
 				F316A26620118ABF007D027C /* LXAVPlayer.bundle */,
@@ -484,11 +484,11 @@
 				F3B129831FD541D800895FA1 /* UILabel+LXLabel.m in Sources */,
 				F316A2632011841C007D027C /* UIImage+LXAVPlayer.m in Sources */,
 				F392CB4F1FF61A1D00C98CFA /* LXSliderView.m in Sources */,
-				F34472B820104BD30029FD61 /* LXPlayTypeListController.m in Sources */,
+				F34472B820104BD30029FD61 /* MTPlayTypeListController.m in Sources */,
 				F3B1298A1FD5438F00895FA1 /* UIColor+Expanded.m in Sources */,
 				F32FDB9B2010915000F3E4DE /* LXPresentSupportController.m in Sources */,
 				F3B129801FD541D000895FA1 /* LxButton.m in Sources */,
-				F3B1298E1FD5459A00895FA1 /* LXAVPlayView.m in Sources */,
+				F3B1298E1FD5459A00895FA1 /* MTAVPlayView.m in Sources */,
 				F39F626B1FFC6DAB00D6C1CF /* UIViewController+LXPlayerRotation.m in Sources */,
 				F3B1294E1FD53D5600895FA1 /* AppDelegate.m in Sources */,
 				F39F62741FFC6EEA00D6C1CF /* UITabBarController+LXPlayerRotation.m in Sources */,
@@ -496,7 +496,7 @@
 				F32FDB9E2010916D00F3E4DE /* LXPresentNotSupportController.m in Sources */,
 				F3B1294B1FD53D5600895FA1 /* main.m in Sources */,
 				F392CB4E1FF61A1D00C98CFA /* LXSlider.m in Sources */,
-				F3B129941FD545D200895FA1 /* LXPlayModel.m in Sources */,
+				F3B129941FD545D200895FA1 /* MTPlayModel.m in Sources */,
 				F392CB4D1FF61A1D00C98CFA /* LXProgressView.m in Sources */,
 				F367DFBF200F4F2300EA5DB5 /* LXPlayLoadingView.m in Sources */,
 				F39F62711FFC6E4E00D6C1CF /* UINavigationController+LXPlayerRotation.m in Sources */,

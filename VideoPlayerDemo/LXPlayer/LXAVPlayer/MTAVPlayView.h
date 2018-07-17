@@ -4,9 +4,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@class LXPlayModel;
+@class MTPlayModel;
 
-@interface LXAVPlayView : UIView
+@interface MTAVPlayView : UIView
 
 
 //是否可以设置为横屏
@@ -15,7 +15,7 @@
 //是否自动播放
 @property(nonatomic,assign)BOOL isAutoReplay;
 
-@property(nonatomic,strong)LXPlayModel          *currentModel;//当前模型
+@property(nonatomic,strong)MTPlayModel          *currentModel;//当前模型
 
 /*返回按钮的回调*/
 @property(nonatomic,copy)BackBlock backBlock;

@@ -3,11 +3,13 @@
 //  Copyright © 2017年 mxt. All rights reserved.
 //
 
-#import "LXAVPlayView.h"
+#import "MTAVPlayView.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "LXAVPlayControllView.h"
-@interface LXAVPlayView()<UIGestureRecognizerDelegate>
+
+
+@interface MTAVPlayView()<UIGestureRecognizerDelegate>
 // 播放器的几种状态
 typedef NS_ENUM(NSInteger, LXPlayerState) {
     LXPlayerStateFailed,     // 播放失败
@@ -69,7 +71,10 @@ typedef NS_ENUM(NSInteger, PanDirection){
 @property(nonatomic,assign)UIInterfaceOrientation beforeEnterBackgoundOrientation;//进入后台之前的方向
 
 @end
-@implementation LXAVPlayView
+@implementation MTAVPlayView
+
+
+
 -(void)destroyPlayer{
     
     [self pause];
@@ -93,10 +98,15 @@ typedef NS_ENUM(NSInteger, PanDirection){
     self.player = nil;
     self.contollView = nil;
 }
+
+
+
 -(void)dealloc{
     NSLog(@"%@销毁了",self.class);
     
 }
+
+
 #pragma mark---移除通知----
 -(void)removeNsnotification{
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -123,6 +133,8 @@ typedef NS_ENUM(NSInteger, PanDirection){
         self.timeObserve = nil;
     }
 }
+
+
 
 #pragma mark---初始化---
 -(instancetype)init{
@@ -161,7 +173,113 @@ typedef NS_ENUM(NSInteger, PanDirection){
     return self;
 }
 
--(void)setCurrentModel:(LXPlayModel *)currentModel{
+
+#pragma mark--控件---
+-(void)setUp{
+    
+    [self addSubview:self.contollView];
+    
+    
+    [self.contollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+        
+    }];
+    
+    //播放回调
+    LXWS(weakSelf);
+    //2,  实现  传入
+    self.contollView.playCallBack = ^(BOOL isPlay) {
+        
+        if (isPlay) {
+            [weakSelf play];
+        }else{
+            [weakSelf pause];
+        }
+    };
+    
+    //slide平移手势的回调
+    self.contollView.panBegin = ^{
+        
+        weakSelf.isDragged = YES;
+        if (!weakSelf.contollView) {
+            weakSelf.contollView.isShow = YES;
+        }
+        [weakSelf cancelHideSelector];
+        
+    };
+    
+    self.contollView.getSlideValue = ^(CGFloat value) {
+        
+        // 当前frame宽度 * 总时长 / 总frame长度 = 当前时间
+        CGFloat duration = CMTimeGetSeconds([weakSelf.player.currentItem duration]);
+        int time = duration * value;
+        // 更新时间
+        weakSelf.contollView.startTime = [MTAVPlayView durationStringWithTime:(NSInteger) time];
+    };
+    
+    
+    self.contollView.panEnd = ^(CGFloat value) {
+        CGFloat duration = CMTimeGetSeconds([weakSelf.player.currentItem duration]);
+        int time = duration * value;
+        
+        weakSelf.isDragged = YES;
+        [weakSelf seekToTime:time completionHandler:nil];
+    };
+    
+    
+    self.contollView.tapSlider = ^(CGFloat value) {
+        // 当前frame宽度 * 总时长 / 总frame长度 = 当前时间
+        weakSelf.isDragged = YES;
+        CGFloat duration = CMTimeGetSeconds([weakSelf.player.currentItem duration]);
+        int time = duration * value;
+        // 更新时间
+        weakSelf.contollView.startTime = [MTAVPlayView durationStringWithTime:(NSInteger) time];
+        [weakSelf seekToTime:time completionHandler:nil];
+    };
+    
+    self.contollView.fullScreenBlock = ^(BOOL isFullScreen) {
+        weakSelf.isFullScreen = isFullScreen;
+        
+        weakSelf.isFullScreenByUser = YES;
+        [weakSelf _fullScreenAction];
+        
+        weakSelf.isFullScreenByUser = NO;
+    };
+    
+    self.contollView.backBlock = ^{
+        
+        if (weakSelf.isFullScreen) {
+            weakSelf.isFullScreenByUser = YES;
+            
+            [weakSelf interfaceOrientation:UIInterfaceOrientationPortrait];
+            
+            
+            weakSelf.isFullScreenByUser = NO;
+            weakSelf.contollView.isFullScreen = weakSelf.isFullScreen;
+        }else{
+            
+            
+            if (weakSelf.backBlock) {
+                
+                weakSelf.backBlock();
+            }
+        }
+    };
+    
+    
+    
+    self.contollView.replayBlock = ^(BOOL isReplay) {
+        [weakSelf resetPlay];
+    };
+    
+    [self addGestureRecognizer:self.panRecognizer];
+}
+
+
+
+
+-(void)setCurrentModel:(MTPlayModel *)currentModel{
     _currentModel = currentModel;
     
     self.contollView.playTitle = _currentModel.videoTitle;
@@ -255,8 +373,8 @@ typedef NS_ENUM(NSInteger, PanDirection){
                 
                 if (!weakSelf.isDragged) {
                 
-                    weakSelf.contollView.startTime =[LXAVPlayView durationStringWithTime:(NSInteger)currentTime];
-                    weakSelf.contollView.endTime =[LXAVPlayView durationStringWithTime:(NSInteger)totalTime];
+                    weakSelf.contollView.startTime =[MTAVPlayView durationStringWithTime:(NSInteger)currentTime];
+                    weakSelf.contollView.endTime =[MTAVPlayView durationStringWithTime:(NSInteger)totalTime];
                     //设置播放进度
                     weakSelf.contollView.slideValue = value;
 
@@ -324,6 +442,8 @@ typedef NS_ENUM(NSInteger, PanDirection){
         }
     }
 }
+
+
 #pragma mark--手势种种--
 -(void)createGestures{
     
@@ -386,14 +506,10 @@ typedef NS_ENUM(NSInteger, PanDirection){
     [self pause];
    
 }
+
 - (void)appDidEnterPlayground:(NSNotification *)note{
     //继续播放
-   
-   
-
-    
     [self play];
-    
     
 }
 #pragma mark---私有方法---
@@ -402,9 +518,9 @@ typedef NS_ENUM(NSInteger, PanDirection){
 - (void)resetPlay{
     _isEnd = NO;
     
-    
     [self seekToTime:0 completionHandler:nil];
 }
+
 /**
  *  player添加到fatherView上
  */
@@ -456,107 +572,12 @@ typedef NS_ENUM(NSInteger, PanDirection){
     
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideControllView) object:nil];
 }
-#pragma mark--控件---
--(void)setUp{
-    
-    [self addSubview:self.contollView];
-    
-    
-    [self.contollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.edges.mas_equalTo(UIEdgeInsetsZero);
-        
-    }];
-    
-    //播放回调
-    LXWS(weakSelf);
-    self.contollView.playCallBack = ^(BOOL isPlay) {
-        
-        if (isPlay) {
-            [weakSelf play];
-        }else{
-            [weakSelf pause];
-        }
-    };
-    
-    //slide平移手势的回调
-    
-    self.contollView.panBegin = ^{
-        
-        weakSelf.isDragged = YES;
-        if (!weakSelf.contollView) {
-            weakSelf.contollView.isShow = YES;
-        }
-        [weakSelf cancelHideSelector];
-        
-    };
-    
-    self.contollView.getSlideValue = ^(CGFloat value) {
-        
-        // 当前frame宽度 * 总时长 / 总frame长度 = 当前时间
-        CGFloat duration = CMTimeGetSeconds([weakSelf.player.currentItem duration]);
-        int time = duration * value;
-        // 更新时间
-        weakSelf.contollView.startTime = [LXAVPlayView durationStringWithTime:(NSInteger) time];
-    };
-    
-    
-    self.contollView.panEnd = ^(CGFloat value) {
-        CGFloat duration = CMTimeGetSeconds([weakSelf.player.currentItem duration]);
-        int time = duration * value;
-        
-        weakSelf.isDragged = YES;
-        [weakSelf seekToTime:time completionHandler:nil];
-    };
-    
-    
-    self.contollView.tapSlider = ^(CGFloat value) {
-        // 当前frame宽度 * 总时长 / 总frame长度 = 当前时间
-        weakSelf.isDragged = YES;
-        CGFloat duration = CMTimeGetSeconds([weakSelf.player.currentItem duration]);
-        int time = duration * value;
-        // 更新时间
-        weakSelf.contollView.startTime = [LXAVPlayView durationStringWithTime:(NSInteger) time];
-        [weakSelf seekToTime:time completionHandler:nil];
-    };
-    
-    self.contollView.fullScreenBlock = ^(BOOL isFullScreen) {
-        weakSelf.isFullScreen = isFullScreen;
-        
-         weakSelf.isFullScreenByUser = YES;
-        [weakSelf _fullScreenAction];
-        
-        weakSelf.isFullScreenByUser = NO;
-    };
-    
-    self.contollView.backBlock = ^{
-        
-        if (weakSelf.isFullScreen) {
-            weakSelf.isFullScreenByUser = YES;
 
-            [weakSelf interfaceOrientation:UIInterfaceOrientationPortrait];
-            
-           
-             weakSelf.isFullScreenByUser = NO;
-            weakSelf.contollView.isFullScreen = weakSelf.isFullScreen;
-        }else{
-            
-            
-            if (weakSelf.backBlock) {
-        
-                weakSelf.backBlock();
-            }
-        }
-    };
-    
-    
-    
-    self.contollView.replayBlock = ^(BOOL isReplay) {
-         [weakSelf resetPlay];
-    };
-    
-    [self addGestureRecognizer:self.panRecognizer];
-}
+
+
+
+
+
 
 #pragma mark---单击手势--
 -(void)singleTap:(UITapGestureRecognizer *)tap{
@@ -944,7 +965,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
     
     CGFloat  draggedValue  = (CGFloat)self.sumTime/(CGFloat)totalMovieDuration;
     
-     self.contollView.startTime = [LXAVPlayView durationStringWithTime:(NSInteger) self.sumTime];
+     self.contollView.startTime = [MTAVPlayView durationStringWithTime:(NSInteger) self.sumTime];
     self.contollView.slideValue = draggedValue;
 
 }
@@ -1027,6 +1048,9 @@ typedef NS_ENUM(NSInteger, PanDirection){
     _isFullScreen = isFullScreen;
     self.contollView.isFullScreen = isFullScreen;
 }
+
+
+
 #pragma mark----getter method ---
 -(UITapGestureRecognizer *)singleTap{
     if (!_singleTap) {
