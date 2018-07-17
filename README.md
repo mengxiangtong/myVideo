@@ -1,5 +1,5 @@
 # myVideo
-  LXPlayModel *model =[[LXPlayModel alloc]init];
+  MTPlayModel *model =[[LXPlayModel alloc]init];
     model.playUrl = @"http://wvideo.spriteapp.cn/video/2016/0328/56f8ec01d9bfe_wpd.mp4";
     model.videoTitle = @"蝙蝠侠大战大灰狼";
     model.fatherView = self.playFatherView;
