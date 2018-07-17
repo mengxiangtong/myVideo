@@ -7,6 +7,7 @@
 
 #define  Font(f) [UIFont systemFontOfSize:(f)]
 #define LXWS(weakSelf)  __weak __typeof(&*self)weakSelf = self
+
 typedef void (^ButtonBlock)(UIButton *button);
 
 @interface LxButton : UIButton
